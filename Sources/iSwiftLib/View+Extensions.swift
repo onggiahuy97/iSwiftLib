@@ -25,7 +25,7 @@ public struct FilteringList<T: Identifiable, Content: View>: View {
             .textFieldStyle(.roundedBorder)
             .padding(.horizontal)
             
-        List(filteredItems, rowContent: content)
+            List(filteredItems, rowContent: content)
                 .onAppear(perform: applyFilter)
         }
     }
