@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FilteringList<T: Identifiable, Content: View>: View {
+public struct FilteringList<T: Identifiable, Content: View>: View {
     @State private var filteredItems = [T]()
     @State private var filterString = ""
     
@@ -15,7 +15,7 @@ struct FilteringList<T: Identifiable, Content: View>: View {
     let filterKeyPaths: [KeyPath<T, String>]
     let content: (T) -> Content
     
-    var body: some View {
+    public var body: some View {
         VStack {
             TextField("Filter", text: $filterString.onChange {
                 withAnimation {
