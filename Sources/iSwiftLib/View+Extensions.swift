@@ -26,8 +26,9 @@ public struct FilteringList<T: Identifiable, Content: View>: View {
             .padding(.horizontal)
             
             List(filteredItems, rowContent: content)
-                .onAppear(perform: applyFilter)
         }
+        .onAppear(perform: applyFilter)
+
     }
     
     
