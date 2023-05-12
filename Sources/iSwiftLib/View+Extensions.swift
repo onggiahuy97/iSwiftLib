@@ -31,7 +31,7 @@ public struct FilteringList<T: Identifiable, Content: View>: View {
     }
     
     
-    init(_ data: [T], filterKeys: KeyPath<T, String>..., @ViewBuilder rowContent: @escaping (T) -> Content) {
+    public init(_ data: [T], filterKeys: KeyPath<T, String>..., @ViewBuilder rowContent: @escaping (T) -> Content) {
         listItems = data
         filterKeyPaths = filterKeys
         content = rowContent
