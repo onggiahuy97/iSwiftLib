@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension Binding {
+public extension Binding {
     func onChange(_ handler: @escaping () -> Void) -> Binding<Value> {
         Binding {
             return self.wrappedValue

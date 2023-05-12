@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Bundle {
+public extension Bundle {
     func decode<T: Decodable>(_ type: T.Type, from file: String, dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate, keyDecodingStategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> T {
         guard let url = self.url(forResource: file, withExtension: nil) else {
             fatalError("Failed to locate \(file) in bundle.")
