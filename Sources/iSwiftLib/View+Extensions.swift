@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct FilteringList<T: Identifiable, Content: View>: View {
+    @FocusState private var isTextFieldFocused: Bool
     @State private var filteredItems = [T]()
     @State private var filterString = ""
     
@@ -24,6 +25,7 @@ public struct FilteringList<T: Identifiable, Content: View>: View {
             })
             .textFieldStyle(.roundedBorder)
             .padding(.horizontal)
+            .focused($isTextFieldFocused)
             
             List(filteredItems, rowContent: content)
         }
@@ -31,11 +33,16 @@ public struct FilteringList<T: Identifiable, Content: View>: View {
     }
     
     
-    public init(_ data: [T], filterKeys: KeyPath<T, String>..., @ViewBuilder rowContent: @escaping (T) -> Content) {
+    public init(
+        _ data: [T],
+        filterKeys: KeyPath<T, String>...,
+        focus isSearchTextFocused: Bool = false,
+        @ViewBuilder rowContent: @escaping (T) -> Content
+    ) {
         listItems = data
         filterKeyPaths = filterKeys
         content = rowContent
-        applyFilter()
+        isTextFieldFocused = isSearchTextFocused
     }
     
     private func applyFilter() {
