@@ -28,7 +28,6 @@ public struct FilteringList<T: Identifiable, Content: View>: View {
             List(filteredItems, rowContent: content)
         }
         .onAppear(perform: applyFilter)
-
     }
     
     
@@ -36,6 +35,7 @@ public struct FilteringList<T: Identifiable, Content: View>: View {
         listItems = data
         filterKeyPaths = filterKeys
         content = rowContent
+        applyFilter()
     }
     
     private func applyFilter() {
