@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "iSwiftLib",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v15),
         .macOS(.v12),
         .watchOS(.v6),
         .tvOS(.v13)
